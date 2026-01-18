@@ -8,7 +8,7 @@ public class OfficerDash extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        JLabel lbl = new JLabel("Welcome Buyer: " + username);
+        JLabel lbl = new JLabel("Welcome Officer: " + username);
         lbl.setHorizontalAlignment(JLabel.CENTER);
 
         add(lbl);

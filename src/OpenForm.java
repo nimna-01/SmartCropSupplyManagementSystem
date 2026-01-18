@@ -26,8 +26,11 @@ public class OpenForm extends JFrame {
         card.putClientProperty(FlatClientProperties.STYLE, "arc: 40; background: #252525");
 
         // App Logo/Icon Placeholder (Using Text for now)
-        JLabel logoLabel = new JLabel("🌿"); // You can replace this with an ImageIcon later
-        logoLabel.setFont(new Font("Segoe UI", Font.PLAIN, 60));
+        ImageIcon originalIcon = new ImageIcon("C:\\Users\\SANDANIMNE\\Desktop\\EAD fnl\\logo.png");
+        Image scaledImg = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH); // adjust 100x100
+        ImageIcon logoIcon = new ImageIcon(scaledImg);
+        JLabel logoLabel = new JLabel(logoIcon);
+        logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         // App Title
         // Note: Using <html> allows text wrapping for long names
@@ -58,7 +61,7 @@ public class OpenForm extends JFrame {
         // ... previous code ...
 
 // Assemble
-        card.add(logoLabel, "gapbottom 10");
+        card.add(logoLabel, "center, gapbottom 20");
         card.add(title, "gapbottom 5");
         card.add(subtitle, "gapbottom 40");
         card.add(btnBegin, "width 220!, h 50!");

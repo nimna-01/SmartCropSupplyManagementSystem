@@ -8,7 +8,7 @@ public class BuyerDash extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        JLabel lbl = new JLabel("Welcome Farmer: " + username);
+        JLabel lbl = new JLabel("Welcome Buyer: " + username);
         lbl.setHorizontalAlignment(JLabel.CENTER);
 
         add(lbl);
