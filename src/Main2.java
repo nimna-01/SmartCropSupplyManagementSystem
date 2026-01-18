@@ -2,79 +2,101 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatClientProperties;
 import javax.swing.*;
 import java.awt.*;
+import db.DBconnection;
 
 public class Main2 {
-    public static void main(String[] args) {
-        try {
-            // 1. Setup the Modern FlatLaf Dark Look and Feel
-            FlatDarkLaf.setup();
 
-            // Global UI Customizations
+    public static void main(String[] args) {
+
+        // Setup FlatLaf dark theme
+        try {
+            FlatDarkLaf.setup();
             UIManager.put("Button.arc", 20);
             UIManager.put("Component.focusWidth", 1);
-            UIManager.put("ScrollBar.showButtons", true);
-            UIManager.put("Component.innerFocusWidth", 0);
         } catch (Exception e) {
             System.err.println("Failed to initialize FlatLaf");
         }
 
-        // 2. Run the UI on the Event Dispatch Thread (EDT)
-        SwingUtilities.invokeLater(() -> {
-            // Create the first screen instance
-            OpenForm open = new OpenForm();
-
-            // --- LOGIC FOR BEGIN BUTTON ---
-            open.btnBegin.addActionListener(e -> {
-                Point currentPos = open.getLocation();
-                open.dispose(); // Close the Welcome Page
-
-                LoginForm loginForm = new LoginForm();
-                loginForm.setLocation(currentPos);
-
-                // Handle Login Button Click
-                loginForm.btnLogin.addActionListener(loginEvent -> {
-                    handleLogin(loginForm);
-                });
-
-                loginForm.setVisible(true);
-            });
-
-            // --- LOGIC FOR CONTACT US POPUP ---
-            // FIXED: Removed the redundant 'showContactDialog' call and
-            // corrected 'OpenForm' (Class) to 'open' (Instance variable).
-            open.btnContact.addActionListener(e -> {
-                Contact dialog = new Contact(open);
-                dialog.setVisible(true);
-            });
-
-            // Display the Welcome Page
-            open.setVisible(true);
-        });
+        // Run GUI on Event Dispatch Thread
+        SwingUtilities.invokeLater(Main2::showWelcomePage);
     }
 
-    /**
-     * Logic for checking login credentials
-     */
+    // --- SCREEN: WELCOME PAGE ---
+    private static void showWelcomePage() {
+        OpenForm open = new OpenForm();
+
+        // Go to Login
+        open.btnBegin.addActionListener(e -> {
+            Point pos = open.getLocation();
+            open.dispose();
+            showLoginPage(pos);
+        });
+
+        // Contact Popup
+        open.btnContact.addActionListener(e -> {
+            Contact dialog = new Contact(open);
+            dialog.setVisible(true);
+        });
+
+        open.setVisible(true);
+    }
+
+    // --- SCREEN: LOGIN PAGE ---
+    private static void showLoginPage(Point pos) {
+        LoginForm loginForm = new LoginForm();
+        loginForm.setLocation(pos);
+
+        // Handle Login Action
+        loginForm.btnLogin.addActionListener(e -> handleLogin(loginForm));
+
+        // Go to Register
+        loginForm.btnRegister.addActionListener(e -> {
+            Point currentPos = loginForm.getLocation();
+            loginForm.dispose();
+            showRegisterForm(currentPos);
+        });
+
+        loginForm.setVisible(true);
+    }
+
+    // --- LOGIC: LOGIN VALIDATION ---
     private static void handleLogin(LoginForm form) {
         String user = form.txtUser.getText();
         String pass = new String(form.txtPass.getPassword());
 
         if (user.isEmpty() || pass.isEmpty()) {
-            // Modern UX: Highlight fields in red if empty
-            if(user.isEmpty()) form.txtUser.putClientProperty(FlatClientProperties.OUTLINE, "error");
-            if(pass.isEmpty()) form.txtPass.putClientProperty(FlatClientProperties.OUTLINE, "error");
-
-            JOptionPane.showMessageDialog(form,
-                    "Please enter both username and password.",
-                    "Input Error",
-                    JOptionPane.WARNING_MESSAGE);
+            form.txtUser.putClientProperty(FlatClientProperties.OUTLINE, user.isEmpty() ? "error" : null);
+            form.txtPass.putClientProperty(FlatClientProperties.OUTLINE, pass.isEmpty() ? "error" : null);
+            JOptionPane.showMessageDialog(form, "Please fill all fields.", "Login Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            // Clear errors if fixed
-            form.txtUser.putClientProperty(FlatClientProperties.OUTLINE, null);
-            form.txtPass.putClientProperty(FlatClientProperties.OUTLINE, null);
+            System.out.println("Login attempt: " + user);
 
-            System.out.println("Login attempt for user: " + user);
-            // This is where you will add your MySQL verification code next
         }
     }
+
+    private static void showRegisterForm(Point pos) {
+        // 1. Create the RegisterForm instance
+        RegisterForm regForm = new RegisterForm();
+
+        // 2. Set position
+        regForm.setLocation(pos);
+
+        // 3. Make it visible
+        regForm.setVisible(true);
+
+        // 4. Attach Submit button listener from Main form
+        regForm.btnSubmit.addActionListener(e -> {
+            System.out.println("Register button clicked from Main!"); // Debug
+            regForm.btnSubmitActionPerformed(e);                     // Call your method
+        });
+
+        // 5. Back button
+        regForm.btnBack.addActionListener(e -> {
+            Point currentPos = regForm.getLocation();
+            regForm.dispose();
+            showLoginPage(currentPos); // call your login page
+        });
+    }
+
+
 }

@@ -3,7 +3,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.Statement;
 import db.DBconnection;
 import java.sql.ResultSet;
 
@@ -86,6 +86,7 @@ public class LoginForm extends JFrame
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
         String username = txtUser.getText().trim();
         String password = new String(txtPass.getPassword()).trim();
+        String fullName = "";
 
         if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Enter username and password");
@@ -94,12 +95,12 @@ public class LoginForm extends JFrame
 
         try (Connection con = DBconnection.getConnection()) {
 
-            String sql = "SELECT role FROM login_tbl WHERE user=? AND pass=?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, username);
-            pst.setString(2, password);
+            String quary = "SELECT role FROM register_tbl WHERE username='"+username+"' AND password='"+password+"'";
+            Statement st = (Statement) con.createStatement();
+            txtUser.setText("");
+            txtPass.setText("");
 
-            ResultSet rs = pst.executeQuery();
+            ResultSet rs = st.executeQuery(quary);
 
             if (rs.next()) {
                 String role = rs.getString("role");
@@ -107,11 +108,11 @@ public class LoginForm extends JFrame
                 JOptionPane.showMessageDialog(this, "Login Successful");
 
                 if (role.equalsIgnoreCase("ADMIN")) {
-                    new AdminDash(username).setVisible(true);
+                    new AdminDash(fullName).setVisible(true);
                 } else if (role.equalsIgnoreCase("FARMER")) {
-                    new FarmerDash(username).setVisible(true);
+                    new BuyerDash(username).setVisible(true);
                 } else if (role.equalsIgnoreCase("BUYER")) {
-                    new OtherDash(username).setVisible(true);
+                    new OfficerDash(username).setVisible(true);
                 }
 
                 dispose();

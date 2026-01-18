@@ -1,8 +1,8 @@
 import javax.swing.*;
 
-public class FarmerDash extends JFrame {
+public class BuyerDash extends JFrame {
 
-    public FarmerDash(String username) {
+    public BuyerDash(String username) {
         setTitle("Officer Dashboard");
         setSize(500, 400);
         setLocationRelativeTo(null);
