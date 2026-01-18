@@ -18,11 +18,12 @@ public class Main2 {
             System.err.println("FlatLaf init failed");
         }
 
-        SwingUtilities.invokeLater(Main2::showWelcome);
+        SwingUtilities.invokeLater(() -> showWelcome(new Point(200, 200)));
+
     }
 
     // ---------- WELCOME ----------
-    private static void showWelcome() {
+    private static void showWelcome(Point pos) {
         OpenForm open = new OpenForm();
         open.btnBegin.addActionListener(e -> switchFrame(open, Main2::showLogin));
         open.btnContact.addActionListener(e -> new Contact(open).setVisible(true));
@@ -123,7 +124,7 @@ public class Main2 {
             int confirm = JOptionPane.showConfirmDialog(dash, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
                 dash.dispose();
-                showLogin(new Point(200, 200));
+                showWelcome(new Point(200, 200));
             }
         });
 
@@ -137,7 +138,7 @@ public class Main2 {
             int confirm = JOptionPane.showConfirmDialog(dash, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
                 dash.dispose();
-                showLogin(new Point(200, 200));
+                showWelcome(new Point(200, 200));
             }
         });
 
@@ -151,7 +152,7 @@ public class Main2 {
             int confirm = JOptionPane.showConfirmDialog(dash, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
                 dash.dispose();
-                showLogin(new Point(200, 200));
+                showWelcome(new Point(200, 200));
             }
         });
 
