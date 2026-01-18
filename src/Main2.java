@@ -70,9 +70,9 @@ public class Main2 {
                 String fullName = rs.getString("fullname");
                 String role = rs.getString("role");
 
-                f.dispose(); // Close login window
-
                 JOptionPane.showMessageDialog(f, "System Login has Succeeded !", "Access Granted", JOptionPane.INFORMATION_MESSAGE);
+
+                f.dispose(); // Close login window
 
                 // Role-Based Navigation
                 if ("OFFICER".equalsIgnoreCase(role)) {

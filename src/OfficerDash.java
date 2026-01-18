@@ -16,20 +16,29 @@ public class OfficerDash extends JFrame {
     private void initUI() {
         setTitle("Officer Dashboard - Smart Crop");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1250, 850);
+        setSize(1150, 750);
         setLocationRelativeTo(null);
 
         // --- MAIN LAYOUT ---
         // Column 1: [260!] Fixed sidebar
         // Column 2: [fill]   Growing content area
-        JPanel mainPanel = new JPanel(new MigLayout("fill, insets 0", "[260!]0[fill]", "[fill]"));
+        JPanel mainPanel = new JPanel(new MigLayout("fill, insets 0", "[260!]0[grow, fill]", "[fill]"));
 
         // --- SIDEBAR SECTION ---
-        JPanel sidebar = new JPanel(new MigLayout("wrap, fillx, insets 25", "[fill]", "[]40[]10[]10[]10[]10[]push[]"));
+        JPanel sidebar = new JPanel(new MigLayout("wrap, fillx, insets 30", "[fill]", "[]10[]40[]10[]10[]10[]10[]push[]"));
         sidebar.setBackground(new Color(32, 32, 32));
 
-        JLabel logo = new JLabel("SMART CROP");
-        logo.putClientProperty(FlatClientProperties.STYLE, "font: bold +12; foreground: #2ecc71");
+        ImageIcon originalIcon = new ImageIcon("C:\\Users\\SANDANIMNE\\Desktop\\EAD fnl\\logo.png");
+        Image scaledImg = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        JLabel logoLabel = new JLabel(new ImageIcon(scaledImg));
+        sidebar.add(logoLabel, "center, gapbottom 10");
+
+        JLabel logoText = new JLabel("SMART CROP");
+        logoText.putClientProperty(FlatClientProperties.STYLE, "font: bold +12; foreground: #2ecc71");
+        logoText.setHorizontalAlignment(SwingConstants.CENTER);
+
+        sidebar.add(logoLabel, "center");        // Adds the image
+        sidebar.add(logoText, "center, gapbottom 20"); // Adds the text below it
 
         // Initialize Buttons
         btnFarmers = createMenuButton("👨‍🌾  Farmers");
@@ -40,7 +49,6 @@ public class OfficerDash extends JFrame {
         btnLogout = createMenuButton("🚪  Logout");
         btnLogout.setForeground(new Color(231, 76, 60));
 
-        sidebar.add(logo, "center, gapbottom 20");
         sidebar.add(btnFarmers);
         sidebar.add(btnCrops);
         sidebar.add(btnSupply);
@@ -48,14 +56,14 @@ public class OfficerDash extends JFrame {
         sidebar.add(btnReports);
         sidebar.add(btnLogout, "gapbottom 10");
 
-        // --- CONTENT AREA SECTION ---
-        JPanel contentArea = new JPanel(new MigLayout("wrap, fillx, insets 0", "[fill]", "[]0[fill]"));
+        // --- CONTENT AREA SECTION --
+        JPanel contentArea = new JPanel(new MigLayout("wrap, fillx, insets 20", "[grow, fill]", "[]0[fill]"));
         contentArea.setBackground(new Color(24, 24, 24));
 
         // 1. Top Header Bar
-        JPanel topHeader = new JPanel(new MigLayout("fill, insets 0 40 0 40", "[]push[]"));
+        JPanel topHeader = new JPanel(new MigLayout("fill, insets 0 20 0 40", "[]push[]"));
         topHeader.setBackground(new Color(30, 30, 30));
-        topHeader.setPreferredSize(new Dimension(0, 70));
+        topHeader.setPreferredSize(new Dimension(20, 70));
 
         JLabel pageTitle = new JLabel("Officer Overview");
         pageTitle.putClientProperty(FlatClientProperties.STYLE, "font: bold +5; foreground: #FFFFFF");
@@ -67,7 +75,7 @@ public class OfficerDash extends JFrame {
         topHeader.add(userProfile, "center");
 
         // 2. Body Area (Stats and Table)
-        JPanel body = new JPanel(new MigLayout("wrap, fillx, insets 30 40 30 40", "[fill]"));
+        JPanel body = new JPanel(new MigLayout("wrap, fill, insets 10 100 10 20", "[grow, fill]", "[]15[]15[grow, fill]"));
         body.setOpaque(false);
 
         // Welcome Text
@@ -83,16 +91,16 @@ public class OfficerDash extends JFrame {
 
         // Main Work Panel (Where tables will go)
         JPanel tableContainer = new JPanel(new BorderLayout());
+        tableContainer.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         tableContainer.putClientProperty(FlatClientProperties.STYLE, "arc: 30; background: #1e1e1e");
-        tableContainer.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
 
         JLabel hint = new JLabel("Please select a module from the sidebar to view data tables.", SwingConstants.CENTER);
         hint.setForeground(new Color(80, 80, 80));
         tableContainer.add(hint);
 
-        body.add(welcomeLbl, "gapbottom 20");
-        body.add(statsRow, "h 130!, gapbottom 30");
-        body.add(tableContainer, "grow, push");
+        body.add(welcomeLbl);
+        body.add(statsRow, "h 130!");
+        body.add(tableContainer, "grow");
 
         // Assemble Content Area
         contentArea.add(topHeader, "h 70!");
