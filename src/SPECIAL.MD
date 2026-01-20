@@ -1,0 +1,1 @@
+XAMPP -> Mysql -> config -> my.ini "change port 3306 to 3307"
