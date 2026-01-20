@@ -187,7 +187,7 @@ public class InvoiceMgr extends JPanel {
 
             JasperPrint jp = JasperFillManager.fillReport(jr, params, conn);
 // 1. Define output folder and filename
-            String outputDir = "C:\\Users\\SANDANIMNE\\Desktop\\EAD fnl\\reports\\"; // your folder
+            String outputDir = "C:\\reports\\"; // your folder
             new java.io.File(outputDir).mkdirs(); // create folder if it doesn't exist
             String outputFile = outputDir + "\\Invoice_" + newInvoiceId + ".pdf";
 

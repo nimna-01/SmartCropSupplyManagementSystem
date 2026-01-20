@@ -156,10 +156,9 @@ public class ReportMgr2 extends JPanel {
             JasperPrint jp = JasperFillManager.fillReport(report, params, conn);
 
             // --- EXPORT PDF ---
-            String outputDir = "C:\\Users\\SANDANIMNE\\Desktop\\EAD fnl\\reports\\";
-            new java.io.File(outputDir).mkdirs();
-
-            String outputFile = outputDir + selection + "_.pdf";
+            String outputDir = "C:\\reports\\"; // your folder
+            new java.io.File(outputDir).mkdirs(); // create folder if it doesn't exist
+            String outputFile = outputDir +  selection + ".pdf";
             JasperExportManager.exportReportToPdfFile(jp, outputFile);
 
             JOptionPane.showMessageDialog(this,
