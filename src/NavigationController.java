@@ -31,6 +31,7 @@ public class NavigationController {
         reg.setVisible(true);
     }
 
+
     private static void switchFrame(JFrame current, Consumer<Point> next) {
         Point p = current.getLocation();
         current.dispose();

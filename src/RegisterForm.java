@@ -104,11 +104,6 @@ public class RegisterForm extends JFrame {
         field.putClientProperty(FlatClientProperties.STYLE, "arc: 20; margin: 5,10,5,10");
         return field;
     }
-
-    /**
-     * Database logic for registration.
-     * Call this method from your Main2.java listener.
-     */
     public void btnSubmitActionPerformed() {
         // Attach this in your constructor or after creating btnSubmit
 
@@ -127,15 +122,6 @@ public class RegisterForm extends JFrame {
             }
 
             try (Connection con = DBconnection.getConnection()) {
-                /*String query = "INSERT INTO login_tbl(fullName, username, password, contactNo, email, role) VALUES (?, ?, ?, ?, ?, ?)";
-                PreparedStatement pst = con.prepareStatement(query);
-
-                pst.setString(1, fullName);
-                pst.setString(2, username);
-                pst.setString(3, password); // optional: hash the password
-                pst.setString(4, contact);
-                pst.setString(5, email);
-                pst.setString(6, role);*/
 
                 Statement st = (Statement) con.createStatement();
 

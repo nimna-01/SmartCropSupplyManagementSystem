@@ -51,8 +51,10 @@ public class LoginForm extends JFrame
             btnLogin.addActionListener(e -> btnLoginActionPerformed());
 
 
+
+
             // Register Link
-            btnRegister = new JButton("Create an account");
+            btnRegister = new JButton("You're not a member ? Create an account");
             btnRegister.setForeground(new Color(76, 175, 80));
             btnRegister.setBorderPainted(false);
             btnRegister.setContentAreaFilled(false);
@@ -74,7 +76,6 @@ public class LoginForm extends JFrame
             card.add(txtPass, "h 40!");
             card.add(btnLogin, "h 45!, gaptop 30");
             card.add(btnRegister, "center, gaptop 10");
-
             mainPanel.add(card, "width 350!");
             add(mainPanel);
         }
@@ -84,5 +85,7 @@ public class LoginForm extends JFrame
         AuthController.handleLogin(this);
 
     }
+
+
 
 }
