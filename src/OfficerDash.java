@@ -136,6 +136,14 @@ public class OfficerDash extends JFrame {
         for (ActionListener al : btnLogout.getActionListeners()) {
             btnLogout.removeActionListener(al);
         }
+        btnLogout.addActionListener(e -> {
+            int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                this.dispose();
+                // Ensure you have a Login class. Replace 'Login' with your actual Login class name.
+                new LoginForm().setVisible(true);
+            }
+        });
 
 
 

@@ -72,7 +72,7 @@ public class BuyerDash extends JFrame {
         pageTitle = new JLabel("Buyer Overview");
         pageTitle.putClientProperty(FlatClientProperties.STYLE, "font: bold +6; foreground: #FFFFFF");
 
-        JLabel userProfile = new JLabel("<html>👤 Buyer: " + username2 + "<br><code><b>ID: " + usid + "</b></code></html>");
+        JLabel userProfile = new JLabel("<html>👤 Hi " + username2 + "<br><code><b>UID: " + usid + "</b></code></html>");
         userProfile.setForeground(new Color(180, 180, 180));
         topHeader.add(pageTitle);
         topHeader.add(userProfile);
@@ -124,14 +124,14 @@ public class BuyerDash extends JFrame {
             showForm(new BuyerProfile(usid), "My Account Settings");
         });
 
-       /* btnLogout.addActionListener(e -> {
+        btnLogout.addActionListener(e -> {
             int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
                 this.dispose();
                 // Ensure you have a Login class. Replace 'Login' with your actual Login class name.
                 new OpenForm().setVisible(true);
             }
-        });*/
+        });
 
         btnExit.addActionListener(e -> {
             if (JOptionPane.showConfirmDialog(this, "Exit Buyer Portal?", "Confirm", JOptionPane.YES_NO_OPTION) == 0) {

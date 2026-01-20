@@ -70,7 +70,7 @@ public class AdminDash extends JFrame {
         pageTitle = new JLabel("Admin Overview");
         pageTitle.putClientProperty(FlatClientProperties.STYLE, "font: bold +6; foreground: #FFFFFF");
 
-        JLabel userProfile = new JLabel("<html>👤 Administrator: " + username2 + "<br><code><b>UID: " + usid + "</b></code></html>");
+        JLabel userProfile = new JLabel("<html>👤 Hi " + username2 + "<br><code><b>UID: " + usid + "</b></code></html>");
         userProfile.setForeground(new Color(180, 180, 180));
         topHeader.add(pageTitle);
         topHeader.add(userProfile);
