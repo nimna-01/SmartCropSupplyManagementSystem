@@ -34,10 +34,13 @@ public class BuyerDash extends JFrame {
 
         // Logo Image
         try {
-            ImageIcon originalIcon = new ImageIcon("src/icon/logo.png");
+            ImageIcon originalIcon = new ImageIcon(getClass().getResource("/icon/logo.png"));
             Image scaledImg = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             sidebar.add(new JLabel(new ImageIcon(scaledImg)), "center, gapbottom 10");
-        } catch (Exception e) { /* Icon path handling */ }
+
+        } catch (Exception e) {
+            System.out.println("Sidebar logo not found!");
+        }
 
         JLabel logoText = new JLabel("SMART CROP");
         logoText.putClientProperty(FlatClientProperties.STYLE, "font: bold +18; foreground: #2ecc71");

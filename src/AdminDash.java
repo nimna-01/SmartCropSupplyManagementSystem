@@ -32,12 +32,15 @@ public class AdminDash extends JFrame {
         JPanel sidebar = new JPanel(new MigLayout("wrap, fillx, insets 30", "[fill]", "[]10[]30[]10[]10[]push[]10[]"));
         sidebar.setBackground(new Color(32, 32, 32));
 
-        // Logo
+        // Logo Image
         try {
-            ImageIcon originalIcon = new ImageIcon("src/icon/logo.png");
+            ImageIcon originalIcon = new ImageIcon(getClass().getResource("/icon/logo.png"));
             Image scaledImg = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             sidebar.add(new JLabel(new ImageIcon(scaledImg)), "center, gapbottom 10");
-        } catch (Exception e) { /* Handle path */ }
+
+        } catch (Exception e) {
+            System.out.println("Sidebar logo not found!");
+        }
 
         JLabel logoText = new JLabel("SMART CROP");
         logoText.putClientProperty(FlatClientProperties.STYLE, "font: bold +18; foreground: #2ecc71");

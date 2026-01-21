@@ -25,12 +25,12 @@ public class OpenForm extends JFrame {
         JPanel card = new JPanel(new MigLayout("wrap, fillx, insets 40 50 40 50", "[center]"));
         card.putClientProperty(FlatClientProperties.STYLE, "arc: 40; background: #252525");
 
-        // App Logo/Icon Placeholder (Using Text for now)
-        ImageIcon originalIcon = new ImageIcon("src/icon/logo.png");
-        Image scaledImg = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH); // adjust 100x100
+        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/icon/logo.png"));
+        Image scaledImg = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon logoIcon = new ImageIcon(scaledImg);
         JLabel logoLabel = new JLabel(logoIcon);
         logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
 
         // App Title
         // Note: Using <html> allows text wrapping for long names
@@ -60,13 +60,13 @@ public class OpenForm extends JFrame {
         // Assemble
         // ... previous code ...
 
-// Assemble
+        // Assemble
         card.add(logoLabel, "center, gapbottom 20");
         card.add(title, "gapbottom 5");
         card.add(subtitle, "gapbottom 40");
         card.add(btnBegin, "width 220!, h 50!");
 
-// FIXED: changed 'gatop' to 'gaptop'
+        // FIXED: changed 'gatop' to 'gaptop'
         card.add(btnContact, "gaptop 20");
 
         mainPanel.add(card, "width 400!");
