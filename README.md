@@ -238,7 +238,7 @@
 <footer>
     <p>
         © 2026 Smart Crop Supply Management System<br>
-        Developed by <strong>Nimas</strong><br>
+        Developed by <strong>KGL Sandanimne</strong><br>
         For Educational & Academic Purposes
     </p>
 </footer>
