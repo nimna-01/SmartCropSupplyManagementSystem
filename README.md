@@ -59,7 +59,7 @@
         </tr>
         <tr>
             <td>Language</td>
-            <td>Java</td>
+            <td>Java(JDK21)</td>
         </tr>
         <tr>
             <td>UI Framework</td>
@@ -75,7 +75,7 @@
         </tr>
         <tr>
             <td>Database</td>
-            <td>MySQL</td>
+            <td>MySQL(phpmyadmin)</td>
         </tr>
         <tr>
             <td>Connectivity</td>
