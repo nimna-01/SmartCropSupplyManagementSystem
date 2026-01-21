@@ -145,7 +145,16 @@
         <li>Web-based version</li>
     </ul>
 </section>
-
+<br>
+<section id="Defualt">
+    <h2>🗝️ Defualt Credentials</h2>
+    <ul>
+        <li>ADMIN --> <code>username : admin</code> <code>password : 1234</code>.</li>
+        <li>OFFICER --> <code>username : officer</code> <code>password : 1234</code>.</li>
+        <li>BUYER --> <code>username : buyer</code> <code>password : 1234</code>.</li>
+    </ul>
+</section>
+<br>
 </main>
 <br>
 <footer>
