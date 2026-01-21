@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Crop Supply Management System</title>
 </head>
 <body>
 
