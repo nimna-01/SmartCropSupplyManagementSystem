@@ -81,6 +81,10 @@
             <td>Connectivity</td>
             <td>JDBC</td>
         </tr>
+        <tr>
+            <td>Reports</td>
+            <td>Jasper Reports</td>
+        </tr>
     </table>
 </section>
 <br>
@@ -92,6 +96,7 @@
         <li>Import the provided <code>database.sql</code> file.</li>
         <li>Configure database credentials in the DB connection file.</li>
         <li>Change my mysql port <code>Defualt</code> --> <code>3307</code>.</li>
+        <li>When Report Generating Exported file will on <code>C:/report/</code> Application will create <code>/report/</code> it self if not exist.</li>
     </ol>
 </section>
 <br>
