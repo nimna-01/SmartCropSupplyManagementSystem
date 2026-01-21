@@ -20,6 +20,7 @@
         <li><a href="#usage">Usage</a></li>
         <li><a href="#roles">User Roles</a></li>
         <li><a href="#future">Future Enhancements</a></li>
+        <li><a href="#default">Future Enhancements</a></li>
     </ul>
 </nav>
 
@@ -146,8 +147,8 @@
     </ul>
 </section>
 <br>
-<section id="Defualt">
-    <h2>🗝️ Defualt Credentials</h2>
+<section id="default">
+    <h2>🗝️ Default Credentials</h2>
     <ul>
         <li>ADMIN --> <code>username : admin</code> <code>password : 1234</code>.</li>
         <li>OFFICER --> <code>username : officer</code> <code>password : 1234</code>.</li>
