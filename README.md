@@ -59,7 +59,7 @@
         </tr>
         <tr>
             <td>Language</td>
-            <td>Java</td>
+            <td>Java(JDK21)</td>
         </tr>
         <tr>
             <td>UI Framework</td>
@@ -75,7 +75,7 @@
         </tr>
         <tr>
             <td>Database</td>
-            <td>MySQL</td>
+            <td>MySQL(phpmyadmin)</td>
         </tr>
         <tr>
             <td>Connectivity</td>
@@ -91,13 +91,14 @@
         <li>Install MySQL and create a database.</li>
         <li>Import the provided <code>database.sql</code> file.</li>
         <li>Configure database credentials in the DB connection file.</li>
+        <li>Change my mysql port <code>Defualt</code> --> <code>3307</code>.</li>
     </ol>
 </section>
 <br>
 <section id="usage">
     <h2>▶️ Usage</h2>
     <p><strong>Run using JAR file:</strong></p>
-    <code>java -jar SmartCrop-v1.0.0.jar</code>
+    <code>java -jar SmartCrop-v1.0.1.jar</code>
 
 <p><strong>OR</strong></p>
     <ul>
