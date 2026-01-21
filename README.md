@@ -2,162 +2,246 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Smart Crop Supply Management System</title>
 </head>
 <body>
+
 <header>
-    <p><h1>🌱 Smart Crop Supply Management System<h6>Enterprise Application Development(EAD) Project<h6></h1><br></p>
-    <p> </p>
+    <h1>🌱 Smart Crop Supply Management System</h1>
+    <h3>Enterprise Application Development (EAD) Project</h3>
+    <p><strong>Academic Desktop Application</strong></p>
+    <hr>
 </header>
+
 <nav>
     <ul>
         <li><a href="#overview">Overview</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#tech">Technology</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#usage">Usage</a></li>
+        <li><a href="#features">Key Features</a></li>
+        <li><a href="#tech">Technology Stack</a></li>
+        <li><a href="#architecture">System Architecture</a></li>
+        <li><a href="#installation">Installation Guide</a></li>
+        <li><a href="#usage">How to Run</a></li>
         <li><a href="#roles">User Roles</a></li>
+        <li><a href="#reports">Reports</a></li>
         <li><a href="#future">Future Enhancements</a></li>
-        <li><a href="#default">Default Credentials</a></li>
+        <li><a href="#credentials">Default Credentials</a></li>
+        <li><a href="#license">License</a></li>
     </ul>
 </nav>
+
+<hr>
 
 <main>
 
 <section id="overview">
-    <br>
-    <h2>📌 Overview</h2>
+    <h2>📌 Project Overview</h2>
     <p>
-        The <strong>Smart Crop Supply Management System</strong> is a desktop-based application
-        designed to manage crop supply workflows between officers, farmers, and buyers.
-        The system simplifies farmer registration, crop management, supply preparation,
-        and inventory tracking using a modern user interface.
+        The <strong>Smart Crop Supply Management System</strong> is a Java-based desktop
+        application developed as part of the <strong>Enterprise Application Development (EAD)</strong> module.
+        The system digitalizes crop supply operations by connecting officers, farmers, and buyers
+        through a centralized management platform.
+    </p>
+    <p>
+        It enables efficient farmer registration, crop handling, supply preparation,
+        inventory management, invoice generation, and reporting using a modern UI
+        and a relational database.
     </p>
 </section>
-<br>
+
+<hr>
 
 <section id="features">
     <h2>✨ Key Features</h2>
     <ul>
-        <li>Role-based login (Officer, Farmer, Buyer)</li>
-        <li>Officer dashboard with statistics overview</li>
+        <li>Role-based authentication (Admin, Officer, Buyer)</li>
+        <li>Secure login and registration system</li>
         <li>Farmer and crop management</li>
-        <li>Prepare crop supply for buyers</li>
-        <li>Inventory tracking and reports</li>
+        <li>Supply preparation and inventory tracking</li>
+        <li>Buyer request and invoice management</li>
+        <li>JasperReports integration (PDF reports)</li>
         <li>Modern dark-themed UI using FlatLaf</li>
-        <li>MySQL database integration</li>
+        <li>MySQL database integration via JDBC</li>
     </ul>
 </section>
-<br>
+
+<hr>
+
 <section id="tech">
     <h2>🛠️ Technology Stack</h2>
-    <table>
+    <table border="1" cellpadding="6">
         <tr>
             <th>Category</th>
             <th>Technology</th>
         </tr>
         <tr>
-            <td>Language</td>
-            <td>Java(JDK21)</td>
+            <td>Programming Language</td>
+            <td>Java (JDK 21)</td>
         </tr>
         <tr>
             <td>UI Framework</td>
             <td>Java Swing</td>
         </tr>
         <tr>
-            <td>Layout</td>
+            <td>Layout Manager</td>
             <td>MigLayout</td>
         </tr>
         <tr>
-            <td>Theme</td>
+            <td>Look & Feel</td>
             <td>FlatLaf (Dark)</td>
         </tr>
         <tr>
             <td>Database</td>
-            <td>MySQL(phpmyadmin)</td>
+            <td>MySQL (phpMyAdmin)</td>
         </tr>
         <tr>
-            <td>Connectivity</td>
+            <td>Database Connectivity</td>
             <td>JDBC</td>
         </tr>
         <tr>
-            <td>Reports</td>
-            <td>Jasper Reports</td>
+            <td>Reporting Tool</td>
+            <td>JasperReports</td>
         </tr>
     </table>
 </section>
-<br>
+
+<hr>
+
+<section id="architecture">
+    <h2>🏗️ System Architecture</h2>
+    <ul>
+        <li>Presentation Layer: Java Swing UI</li>
+        <li>Business Logic Layer: Java Controllers & Managers</li>
+        <li>Data Access Layer: JDBC + MySQL</li>
+        <li>Reporting Layer: JasperReports (PDF Export)</li>
+    </ul>
+</section>
+
+<hr>
+
 <section id="installation">
-    <h2>⚙️ Installation</h2>
+    <h2>⚙️ Installation Guide</h2>
     <ol>
-        <li>Clone the GitHub repository.</li>
-        <li>Install MySQL and create a database.</li>
+        <li>Clone the GitHub repository to your local machine.</li>
+        <li>Install MySQL Server and phpMyAdmin.</li>
+        <li>Create a new database for the system.</li>
         <li>Import the provided <code>database.sql</code> file.</li>
-        <li>Configure database credentials in the DB connection file.</li>
-        <li>Source code default mysql port <code>Defualt</code> --> <code>3307</code> change it or <code>SmartCrop-v1.0.1_JAR+DB [3306]</code> eddition.</li>
-        <li>When Report Generating Exported file will on <code>C:/report/</code> Application will create <code>/report/</code> it self if not exist.</li>
+        <li>Configure database credentials in the DB connection class.</li>
+        <li>
+            Default MySQL port is <code>3307</code>.
+            <br>
+            If required, use the edition:
+            <code>SmartCrop-v1.0.1_JAR+DB [3306]</code>
+        </li>
+        <li>
+            Generated reports will be exported to:
+            <code>C:/reports/</code>
+            <br>
+            (The folder is created automatically if it does not exist.)
+        </li>
     </ol>
 </section>
-<br>
-<section id="usage">
-    <h2>▶️ Usage</h2>
-    <p><strong>Run using JAR file:</strong></p>
-    <code>java -jar SmartCrop-v1.0.1.jar</code>
 
-<p><strong>OR</strong></p>
+<hr>
+
+<section id="usage">
+    <h2>▶️ How to Run the Application</h2>
+
+    <p><strong>Run using JAR file:</strong></p>
+    <pre>java -jar SmartCrop-v1.0.1.jar</pre>
+
+    <p><strong>OR run from IDE:</strong></p>
     <ul>
-        <li>Open the project in NetBeans / IntelliJ / Eclipse</li>
-        <li>Set the Main class</li>
+        <li>Open the project in IntelliJ IDEA / NetBeans / Eclipse</li>
+        <li>Set the main class</li>
         <li>Run the application</li>
     </ul>
 </section>
-<br>
+
+<hr>
+
 <section id="roles">
-    <h2>👥 User Roles</h2>
-    <table>
+    <h2>👥 User Roles & Responsibilities</h2>
+    <table border="1" cellpadding="6">
         <tr>
             <th>Role</th>
             <th>Description</th>
         </tr>
         <tr>
-            <td>Officer</td>
-            <td>Manages farmers, crops, inventory, and supply workflow</td>
+            <td>Admin</td>
+            <td>Manages system users, configurations, and overall monitoring</td>
         </tr>
         <tr>
-            <td>Farmer</td>
-            <td>Registers crops and provides supply details</td>
+            <td>Officer</td>
+            <td>Handles farmers, crops, supply preparation, inventory, and reports</td>
         </tr>
         <tr>
             <td>Buyer</td>
-            <td>Views and requests prepared crop supplies</td>
+            <td>Requests crops, views invoices, and checks supply status</td>
         </tr>
     </table>
 </section>
-<br>
+
+<hr>
+
+<section id="reports">
+    <h2>📊 Reporting Module</h2>
+    <ul>
+        <li>Farmer Report</li>
+        <li>Crop Report</li>
+        <li>Supply & Inventory Report</li>
+        <li>Invoice Report (PDF)</li>
+    </ul>
+    <p>
+        Reports are generated using <strong>JasperReports</strong>
+        and exported as PDF files.
+    </p>
+</section>
+
+<hr>
+
 <section id="future">
     <h2>🚀 Future Enhancements</h2>
     <ul>
-        <li>Advanced reports and analytics</li>
-        <li>Export data to PDF and Excel</li>
-        <li>Notification system</li>
-        <li>Improved security and validations</li>
-        <li>Web-based version</li>
+        <li>Advanced analytics dashboards</li>
+        <li>Email and notification system</li>
+        <li>Excel and CSV export support</li>
+        <li>Improved security and validation</li>
+        <li>Web-based and mobile versions</li>
     </ul>
 </section>
-<br>
-<section id="default">
-    <h2>🗝️ Default Credentials</h2>
+
+<hr>
+
+<section id="credentials">
+    <h2>🗝️ Default Login Credentials</h2>
     <ul>
-        <li>ADMIN --> <code>username : admin</code> <code>password : 1234</code>.</li>
-        <li>OFFICER --> <code>username : officer</code> <code>password : 1234</code>.</li>
-        <li>BUYER --> <code>username : buyer</code> <code>password : 1234</code>.</li>
+        <li><strong>ADMIN</strong> → username: <code>admin</code> | password: <code>1234</code></li>
+        <li><strong>OFFICER</strong> → username: <code>officer</code> | password: <code>1234</code></li>
+        <li><strong>BUYER</strong> → username: <code>buyer</code> | password: <code>1234</code></li>
     </ul>
 </section>
-<br>
+
+<hr>
+
+<section id="license">
+    <h2>📄 License</h2>
+    <p>
+        This project is licensed under the <strong>MIT License</strong>.
+        <br>
+        See the <code>LICENSE</code> file for details.
+    </p>
+</section>
+
 </main>
-<br>
+
+<hr>
+
 <footer>
-    <p>© 2026 Smart Crop Supply Management System | Developed for Educational Purposes</p>
+    <p>
+        © 2026 Smart Crop Supply Management System<br>
+        Developed by <strong>Nimas</strong><br>
+        For Educational & Academic Purposes
+    </p>
 </footer>
 
 </body>
