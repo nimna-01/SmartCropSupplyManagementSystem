@@ -126,9 +126,9 @@
         <li>Import the provided <code>database.sql</code> file.</li>
         <li>Configure database credentials in the DB connection class.</li>
         <li>
-            Default MySQL port is <code>3307</code>.
+            Project Default MySQL port is <code>3307</code>.
             <br>
-            If required, use this edition:-> 
+            If had any issue , use this edition:-> 
             <code><a href="https://github.com/nimna-01/SmartCropSupplyManagementSystem/releases/download/v1.0.1/SmartCrop-v1.0.1_JAR+DB.3306.zip">SmartCrop-v1.0.1_JAR+DB [3306]</a></code>
         </li>
         <li>
