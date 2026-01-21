@@ -12,6 +12,13 @@
     <hr>
 </header>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/License-MIT%20%2B%20Apache--2.0-blue.svg" />
+  <img src="https://img.shields.io/badge/Java-JDK%2021-orange.svg" />
+  <img src="https://img.shields.io/badge/Database-MySQL-blue.svg" />
+  <img src="https://img.shields.io/badge/Reports-JasperReports-green.svg" />
+</p>
+
 <nav>
     <ul>
         <li><a href="#overview">Overview</a></li>
